@@ -3,7 +3,7 @@ extern crate serde;
 extern crate serde_json;
 extern crate sha2;
 
-use sha2::{Sha256, Digest};
+use self::sha2::{Sha256, Digest};
 use std::fmt::Write;
 
 #[derive(Debug, Clone, Serialize)]
@@ -84,7 +84,7 @@ impl Chain {
             timestamp: time::now().to_timespec().sec,
             nonce: 0,
             pre_hash: self.last_hash(),
-            merkle: Str,
+            merkle: String::new(),
             difficulty: self.difficulty
         };
 

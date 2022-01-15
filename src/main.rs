@@ -75,7 +75,7 @@ fn main() {
                 print!("Enter the new difficulty: ");
                 io::stdout().flush();
                 io::stdin().read_line(&mut new_diff);
-                chain.update_difficulty(new_diff.trim().parse().unwrap());
+                let res = chain.update_difficulty(new_diff.trim().parse().unwrap());
                 match res {
                     true => println!("Difficulty update successful"),
                     false => println!("Difficulty update failed"),
@@ -86,7 +86,7 @@ fn main() {
                 print!("Enter the new reward: ");
                 io::stdout().flush();
                 io::stdin().read_line(&mut new_reward);
-                chain.update_reward(new_reward.trim().parse().unwrap());
+                let res = chain.update_reward(new_reward.trim().parse().unwrap());
                 match res {
                     true => println!("Reward update successful"),
                     false => println!("Reward update failed"),
