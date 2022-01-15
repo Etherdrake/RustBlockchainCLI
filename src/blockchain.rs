@@ -1,4 +1,4 @@
-extern crate time;
+extern crate chrono;
 extern crate serde;
 extern crate serde_json;
 extern crate sha2;
@@ -81,7 +81,7 @@ impl Chain {
 
     pub fn generate_new_block(&mut self) -> bool {
         let header = Blockheader {
-            timestamp: time::now().to_timespec().sec,
+            timestamp: time::get_time().to_timespec().sec,
             nonce: 0,
             pre_hash: self.last_hash(),
             merkle: String::new(),
